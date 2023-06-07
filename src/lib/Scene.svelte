@@ -2,14 +2,16 @@
 <script lang="ts">
   import {
 		DirectionalLight,
-		Object3DInstance,
 		OrbitControls,
-		PerspectiveCamera
+		PerspectiveCamera,
+		Three
 	} from '@threlte/core'
-	import { Debug } from '@threlte/rapier'
+	import { Debug, Attractor } from '@threlte/rapier'
 	import { GridHelper } from 'three'
   import Ground from './Ground.svelte'
 	import Dice from './Dice.svelte'
+
+
 </script>
 
 <PerspectiveCamera position={{ y: 10, z: 10, x: 10 }}>
@@ -18,8 +20,11 @@
 
 <DirectionalLight shadow position={{ x: 8, y: 20, z: -3 }}/>
 
-<Object3DInstance object={new GridHelper(10)}/>
+<Three type={new GridHelper(10)} />
 
 <Ground />
+
+<Debug />
+<Attractor range={7} strength={20} gravityType={'linear'}/>
 
 <Dice />
