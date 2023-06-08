@@ -25,6 +25,6 @@
 <Ground />
 
 <Debug />
-<Attractor range={7} strength={20} gravityType={'linear'}/>
+<!-- <Attractor range={10} strength={20} gravityType={'linear'}/> -->
 
 <Dice />
