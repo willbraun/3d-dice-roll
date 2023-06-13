@@ -5,7 +5,7 @@
 </script>
 
 <Canvas>
-  <World>
+  <World gravity={{ y: 0}}>
     <Scene />
   </World>
 </Canvas>
