@@ -2,11 +2,14 @@
 	import { derived } from 'svelte/store';
 	import type { Mesh as ThreeMesh } from 'three';
 	import { Mesh } from '@threlte/core';
+	import type { Position } from '@threlte/core';
 	import { useGltf } from '@threlte/extras';
 	import { AutoColliders, RigidBody } from '@threlte/rapier';
-	import { DEG2RAD } from 'three/src/math/MathUtils'
+	import { DEG2RAD } from 'three/src/math/MathUtils';
 	import { browser } from '$app/environment';
 	import { writable } from 'svelte/store';
+
+	export let position: Position;
 
 	const { gltf } = useGltf('/dice.glb');
 
@@ -16,12 +19,12 @@
 		return meshes;
 	});
 
-	const randomAngle = () => Math.random() * 360 * DEG2RAD
+	const randomAngle = () => Math.random() * 360 * DEG2RAD;
 	const randomAngVel = () => ({
 		x: randomAngle(),
 		y: randomAngle(),
-		z: randomAngle(),
-	})
+		z: randomAngle()
+	});
 
 	// let angVel = writable(randomAngVel())
 	// let extra = writable(0)
@@ -40,12 +43,11 @@
 	// if (browser) {
 	// 	spin()
 	// }
-
 </script>
 
 {#if $diceMeshes}
-	<RigidBody type={'dynamic'} position={{ y: 5 }} angularVelocity={randomAngVel()}>
-		<AutoColliders shape={'cuboid'} >
+	<RigidBody type={'dynamic'} bind:position angularVelocity={randomAngVel()}>
+		<AutoColliders shape={'cuboid'}>
 			{#each $diceMeshes as diceMesh}
 				<Mesh castShadow geometry={diceMesh.geometry} material={diceMesh.material} />
 			{/each}
