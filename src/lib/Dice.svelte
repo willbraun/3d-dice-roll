@@ -5,9 +5,8 @@
 	import type { Position } from '@threlte/core';
 	import { useGltf } from '@threlte/extras';
 	import { AutoColliders, RigidBody } from '@threlte/rapier';
-	import { DEG2RAD } from 'three/src/math/MathUtils';
 	import { browser } from '$app/environment';
-	import { writable } from 'svelte/store';
+	import { gravity } from './store';
 
 	export let position: Position;
 
@@ -19,34 +18,33 @@
 		return meshes;
 	});
 
-	const randomAngle = () => Math.random() * 360 * DEG2RAD;
-	const randomAngVel = () => ({
-		x: randomAngle(),
-		y: randomAngle(),
-		z: randomAngle()
-	});
+	const randomValue = (low: number, high: number) => low + Math.random() * (high - low);
 
-	// let angVel = writable(randomAngVel())
-	// let extra = writable(0)
+	let speed = randomValue(4, 5);
+	let angularVelocity = {
+		x: speed,
+		y: speed,
+		z: speed,
+	};
+	let t = 0;
+	let tOffset = randomValue(0, Math.PI);
+	let tSpeed = randomValue(0.07, 0.13);
 
-	// function spin() {
-	// 	extra.update(e => e + 0.02)
-	// 	angVel.update(angVel => ({
-	// 		x: angVel.x + (Math.sin($extra) * 0.01),
-	// 		y: angVel.y,
-	// 		z: angVel.z,
-	// 	}))
-	// 	requestAnimationFrame(spin)
-	// 	console.log($extra)
-	// }
+	function animate() {
+		if ($gravity.y) return;
 
-	// if (browser) {
-	// 	spin()
-	// }
+		angularVelocity.x = Math.sin(t + tOffset) * speed;
+		t += tSpeed;
+		requestAnimationFrame(animate);
+	}
+
+	if (browser && !$gravity.y) {
+		animate();
+	}
 </script>
 
 {#if $diceMeshes}
-	<RigidBody type={'dynamic'} bind:position angularVelocity={randomAngVel()}>
+	<RigidBody type={'dynamic'} bind:position bind:angularVelocity>
 		<AutoColliders shape={'cuboid'}>
 			{#each $diceMeshes as diceMesh}
 				<Mesh castShadow geometry={diceMesh.geometry} material={diceMesh.material} />
