@@ -5,5 +5,5 @@
 </script>
 
 <AutoColliders shape={'cuboid'} position={{ y: -0.5 }}>
-	<Mesh receiveShadow geometry={new BoxGeometry(30, 1, 30)} material={new MeshStandardMaterial()} />
+	<Mesh receiveShadow geometry={new BoxGeometry(50, 1, 50)} material={new MeshStandardMaterial()} />
 </AutoColliders>

@@ -1,19 +1,17 @@
 <script lang="ts">
-	import { DirectionalLight, OrbitControls, PerspectiveCamera, Three } from '@threlte/core';
+	import * as Threlte from '@threlte/core';
 	import { Debug } from '@threlte/rapier';
-	import { GridHelper } from 'three';
+	import * as THREE from 'three';
 	import Ground from './Ground.svelte';
 	import Dice from './Dice.svelte';
 	import { unique } from './store';
 </script>
 
-<PerspectiveCamera position={{ x: 0, y: 14, z: 14 }}>
-	<OrbitControls />
-</PerspectiveCamera>
+<Threlte.PerspectiveCamera position={{ x: 0, y: 12, z: 14 }} fov={60}>
+	<Threlte.OrbitControls />
+</Threlte.PerspectiveCamera>
 
-<DirectionalLight shadow position={{ x: 8, y: 20, z: 3 }} />
-
-<Three type={new GridHelper(30)} />
+<Threlte.Three type={new THREE.DirectionalLight()} castShadow position={[3, 10, 3]} />
 
 <Ground />
 

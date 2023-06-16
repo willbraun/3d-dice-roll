@@ -30,16 +30,16 @@
 	let tOffset = randomValue(0, Math.PI);
 	let tSpeed = randomValue(0.07, 0.13);
 
-	function animate() {
+	function oscillate() {
 		if ($gravity.y) return;
 
 		angularVelocity.x = Math.sin(t + tOffset) * speed;
 		t += tSpeed;
-		requestAnimationFrame(animate);
+		requestAnimationFrame(oscillate);
 	}
 
 	if (browser && !$gravity.y) {
-		animate();
+		oscillate();
 	}
 </script>
 
