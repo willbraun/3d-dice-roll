@@ -4,9 +4,7 @@ Roll two six-sided dice in 3D!
 
 ## Technologies Used
 
-SvelteKit, Three.js, Threlte, Rapier, TypeScript, SCSS
-
-Threlte is a Svelte library for writing declarative Three.js code. Threlte uses the Rapier physics engine simulate collisions in the browser.
+SvelteKit, Three.js, Threlte, Rapier Physics Engine, TypeScript, SCSS
 
 ## Attribution
 
