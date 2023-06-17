@@ -13,3 +13,8 @@
 		<Scene />
 	</World>
 </Canvas>
+
+<svelte:head>
+	<title>3D Dice Roll</title>
+	<meta name="description" content="Roll dice in 3D." />
+</svelte:head>

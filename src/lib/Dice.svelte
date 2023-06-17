@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { derived } from 'svelte/store';
-	import type { Mesh as ThreeMesh } from 'three';
-	import { Mesh } from '@threlte/core';
+	import { Mesh } from 'three';
+	import { Three } from '@threlte/core';
 	import type { Position } from '@threlte/core';
 	import { useGltf } from '@threlte/extras';
 	import { AutoColliders, RigidBody } from '@threlte/rapier';
@@ -12,9 +12,9 @@
 
 	const { gltf } = useGltf('/dice.glb');
 
-	const diceMeshes = derived(gltf, (gltf) => {
+	const meshes = derived(gltf, (gltf) => {
 		if (!gltf) return;
-		const meshes: ThreeMesh[] = Object.values(gltf.nodes).filter((value) => value.type === 'Mesh');
+		const meshes: Mesh[] = Object.values(gltf.nodes).filter((value) => value.type === 'Mesh');
 		return meshes;
 	});
 
@@ -43,11 +43,14 @@
 	}
 </script>
 
-{#if $diceMeshes}
+{#if $meshes}
 	<RigidBody type={'dynamic'} bind:position bind:angularVelocity>
 		<AutoColliders shape={'cuboid'}>
-			{#each $diceMeshes as diceMesh}
-				<Mesh castShadow geometry={diceMesh.geometry} material={diceMesh.material} />
+			{#each $meshes as mesh}
+				<Three type={new Mesh()} castShadow>
+					<Three type={mesh.geometry} attach="geometry" />
+					<Three type={mesh.material} attach="material" />
+				</Three>
 			{/each}
 		</AutoColliders>
 	</RigidBody>

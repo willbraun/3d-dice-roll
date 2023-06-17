@@ -12,8 +12,11 @@
 </script>
 
 <div class="container">
-	<button on:click={enableGravity}>Roll</button>
-	<button on:click={reset}>Reset</button>
+	{#if $gravity.y}
+		<button on:click={reset}>Reset</button>
+	{:else}
+		<button on:click={enableGravity}>Roll</button>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -23,26 +26,29 @@
 
 	.container {
 		position: absolute;
-		top: 0;
-		right: 0;
-		width: 10rem;
+		bottom: 10%;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 20rem;
 		padding: 1rem;
 
 		button {
 			width: 100%;
-			font-size: 1.5rem;
+			font-size: 2rem;
 			padding: 0.5rem;
 			border: 1px solid #000;
 			border-radius: 0.5rem;
-		}
-
-		button:not(:last-child) {
-			margin: 0 0 1rem 0;
+			transition: 0.1s;
+			box-shadow: 0 3px 5px 1px #555;
 		}
 
 		button:hover {
 			cursor: pointer;
-			filter: brightness(110%);
+		}
+
+		button:active {
+			transform: translateY(2px);
+			box-shadow: 0 1px 3px 1px #555;
 		}
 	}
 </style>

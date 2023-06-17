@@ -1,9 +1,14 @@
 <script lang="ts">
-	import { Mesh } from '@threlte/core';
+	import { Three, useTexture } from '@threlte/core';
 	import { AutoColliders } from '@threlte/rapier';
-	import { BoxGeometry, MeshStandardMaterial } from 'three';
+	import { Mesh, BoxGeometry, MeshStandardMaterial } from 'three';
+
+	const surface = useTexture('wood.jpeg');
 </script>
 
 <AutoColliders shape={'cuboid'} position={{ y: -0.5 }}>
-	<Mesh receiveShadow geometry={new BoxGeometry(50, 1, 50)} material={new MeshStandardMaterial()} />
+	<Three type={new Mesh()} receiveShadow>
+		<Three type={new BoxGeometry(40, 1, 40)} attach="geometry" />
+		<Three type={new MeshStandardMaterial({ map: surface })} />
+	</Three>
 </AutoColliders>

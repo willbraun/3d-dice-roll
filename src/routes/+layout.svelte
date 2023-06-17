@@ -8,7 +8,7 @@
 		height: 100%;
 		position: absolute;
 		inset: 0;
-		background: radial-gradient(circle, #444, #222);
+		background: radial-gradient(circle, #adf4ff, #02a4d1);
 		background-attachment: fixed;
 	}
 </style>
