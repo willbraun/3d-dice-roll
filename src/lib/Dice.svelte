@@ -45,7 +45,7 @@
 
 {#if $meshes}
 	<RigidBody type={'dynamic'} bind:position bind:angularVelocity>
-		<AutoColliders shape={'cuboid'}>
+		<AutoColliders shape={'cuboid'} restitution={0.5}>
 			{#each $meshes as mesh}
 				<Three type={new Mesh()} castShadow>
 					<Three type={mesh.geometry} attach="geometry" />
