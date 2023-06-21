@@ -3,7 +3,7 @@
 	import { Mesh } from 'three';
 	import { Three } from '@threlte/core';
 	import type { Position } from '@threlte/core';
-	import { useGltf } from '@threlte/extras';
+	import { useGltf } from './threlte-extras-custom';
 	import { AutoColliders, RigidBody } from '@threlte/rapier';
 	import { browser } from '$app/environment';
 	import { gravity } from './store';
@@ -45,7 +45,7 @@
 
 {#if $meshes}
 	<RigidBody type={'dynamic'} bind:position bind:angularVelocity>
-		<AutoColliders shape={'cuboid'} restitution={0.5}>
+		<AutoColliders shape={'cuboid'}>
 			{#each $meshes as mesh}
 				<Three type={new Mesh()} castShadow>
 					<Three type={mesh.geometry} attach="geometry" />

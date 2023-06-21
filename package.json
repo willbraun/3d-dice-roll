@@ -34,11 +34,11 @@
 	"dependencies": {
 		"@dimforge/rapier3d-compat": "^0.11.2",
 		"@threlte/core": "^5.0.9",
-		"@threlte/extras": "^4.9.3",
 		"@threlte/rapier": "^0.5.0",
 		"@tweakpane/core": "^1.1.8",
 		"@tweakpane/plugin-essentials": "^0.1.8",
 		"three": "^0.153.0",
+		"troika-three-text": "^0.47.2",
 		"tweakpane": "^3.1.9"
 	}
 }
