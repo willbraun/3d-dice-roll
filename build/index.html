@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./dice_favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		
+		<link href="./_app/immutable/assets/0.5e7ed092.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/2.803f4781.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.0903faad.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.74c54b30.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.5a360d2a.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.98380496.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.09377572.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.218a686b.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/2.bb446dd8.js"><title>3D Dice Roll</title><!-- HEAD_svelte-1a3q7mc_START --><meta name="description" content="Roll dice in 3D."><!-- HEAD_svelte-1a3q7mc_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+
+
+<div class="scene svelte-1axn10v"><div class="container svelte-1sw5rc"><button class="svelte-1sw5rc">Roll</button>
+</div>
+
+<canvas class="svelte-o3oskp">
+</canvas>
+
+
+</div>
+
+
+			
+			<script>
+				{
+					__sveltekit_1krik2n = {
+						base: new URL(".", location).pathname.slice(0, -1),
+						env: {}
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [{"type":"data","data":null,"uses":{},"slash":"ignore"},null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.0903faad.js"),
+						import("./_app/immutable/entry/app.09377572.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 2],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>
