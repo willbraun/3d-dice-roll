@@ -19,7 +19,7 @@
 	light.shadow.camera.far = 500;
 </script>
 
-<PerspectiveCamera position={{ x: 0, y: 12, z: 14 }} fov={60}>
+<PerspectiveCamera position={{ x: 0, y: 12, z: 14 }} fov={75}>
 	<OrbitControls />
 </PerspectiveCamera>
 

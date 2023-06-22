@@ -1,6 +1,8 @@
 # Overview
 
-Roll two six-sided dice in 3D!
+Roll two six-sided dice in 3D! I built this project to explore 3D physics on the web.
+
+dice.willbraun.dev - [:link:](https://dice.willbraun.dev)
 
 ## Technologies Used
 
