@@ -6,7 +6,7 @@ dice.willbraun.dev - [:link:](https://dice.willbraun.dev)
 
 ## Technologies Used
 
-SvelteKit, Three.js, Threlte, Rapier Physics Engine, TypeScript, SCSS
+SvelteKit, Three.js, Threlte, Rapier Physics Engine, TypeScript, SCSS, Netlify
 
 ## Attribution
 
